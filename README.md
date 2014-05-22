@@ -1,7 +1,7 @@
 arcanist-go-lib
 ===================
 
-Set of Arcanist classes for working with applications written in Go programming language. Currently 'golint' and 'go vet' are supported.
+Set of Arcanist classes for working with applications written in Go programming language. Currently `golint` and `go vet` are supported.
 
 ## General usage
 
