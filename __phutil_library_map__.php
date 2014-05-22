@@ -10,17 +10,15 @@ phutil_register_library_map(array(
   '__library_version__' => 2,
   'class' =>
   array(
-    'ArcanistCoffeeLintLinter' => 'lint/ArcanistCoffeeLintLinter.php',
-    'ArcanistJsonlintLinter' => 'lint/ArcanistJsonlintLinter.php',
-    'ArcanistMochaSpecificationLinter' => 'lint/ArcanistMochaSpecificationLinter.php',
+    'ArcanistGoLintLinter' => 'lint/ArcanistGoLintLinter.php',
+    'ArcanistGoVetLinter' => 'lint/ArcanistGoVetLinter.php',
   ),
   'function' =>
   array(
   ),
   'xmap' =>
   array(
-    'ArcanistCoffeeLintLinter' => 'ArcanistLinter',
-    'ArcanistJsonlintLinter' => 'ArcanistLinter',
-    'ArcanistMochaSpecificationLinter' => 'ArcanistLinter',
+    'ArcanistGoLintLinter' => 'ArcanistLinter',
+    'ArcanistGoVetLinter' => 'ArcanistLinter',
   ),
 ));

@@ -1,7 +1,7 @@
-arcanist-coffee-lib
+arcanist-go-lib
 ===================
 
-Set of Arcanist classes for working with applications written in CoffeeScript.
+Set of Arcanist classes for working with applications written in Go programming language.
 
 ## General usage
 
@@ -11,7 +11,7 @@ own Arcanist library, then load it in your `.arcconfig`:
 ```
 ...
 "load": [
-  "arcanist-coffee-lib",
+  "arcanist-go-lib",
   "your-library"
 ],
 ...
@@ -41,8 +41,8 @@ final class SampleLintEngine extends ArcanistLintEngine {
     $linters = array();
 
     // linters for specific file types
-    $linters['COFFEESCRIPT'] = new ArcanistCoffeeLintLinter();
-    $linters['COFFEESCRIPT']->setPaths(preg_grep('@\.coffee$@', $paths));
+    $linters['COFFEESCRIPT'] = new ArcanistGoLintLinter();
+    $linters['COFFEESCRIPT']->setPaths(preg_grep('@\.go$@', $paths));
 
     $linters['JSON'] = new ArcanistJsonlintLinter();
     $linters['JSON']->setPaths(preg_grep('@\.json$@', $paths));
@@ -53,19 +53,9 @@ final class SampleLintEngine extends ArcanistLintEngine {
 ?>
 ```
 
-## CoffeeLint linter
-
-CoffeeLint linter is configurable by supplying a JSON file as described on
-[CoffeeLint homepage](http://www.coffeelint.org/). The file can be then pointed
-to in your `.arcconfig` with (paths are relative to `.arcconfig` location):
-
-```
-"lint.coffeelint.config": "coffeelint.json"
-```
-
 ## License
 
-Copyright 2013 Synaway sp. z o.o.
+Copyright 2014 Patrick Tsai
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

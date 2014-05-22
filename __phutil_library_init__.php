@@ -1,3 +1,3 @@
 <?php
 
-phutil_register_library('arcanist-coffee-lib', __FILE__);
+phutil_register_library('arcanist-go-lib', __FILE__);
