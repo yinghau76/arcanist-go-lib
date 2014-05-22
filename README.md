@@ -1,7 +1,7 @@
 arcanist-go-lib
 ===================
 
-Set of Arcanist classes for working with applications written in Go programming language. Currently `golint` and `go vet` are supported.
+Set of Arcanist classes for working with applications written in Go programming language. Currently `golint`, `go vet`, `go test` are supported.
 
 ## General usage
 
@@ -11,9 +11,9 @@ own Arcanist library, then load it in your `.arcconfig`:
 ```
 ...
 "load": [
-  "arcanist-go-lib",
-  "your-library"
+  "arcanist-go-lib"
 ],
+"unit.engine": "ArcanistGoTestEngine",
 ...
 ```
 

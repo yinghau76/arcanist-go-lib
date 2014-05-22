@@ -12,6 +12,7 @@ phutil_register_library_map(array(
   array(
     'ArcanistGoLintLinter' => 'lint/ArcanistGoLintLinter.php',
     'ArcanistGoVetLinter' => 'lint/ArcanistGoVetLinter.php',
+    'ArcanistGoTestEngine' => 'unit/ArcanistGoTest.php',
   ),
   'function' =>
   array(
@@ -20,5 +21,6 @@ phutil_register_library_map(array(
   array(
     'ArcanistGoLintLinter' => 'ArcanistLinter',
     'ArcanistGoVetLinter' => 'ArcanistLinter',
+    'ArcanistGoTestEngine' => 'ArcanistBaseUnitTestEngine',
   ),
 ));
