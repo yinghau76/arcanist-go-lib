@@ -1,7 +1,7 @@
 arcanist-go-lib
 ===================
 
-Set of Arcanist classes for working with applications written in Go programming language.
+Set of Arcanist classes for working with applications written in Go programming language. Currently 'golint' and 'go vet' are supported.
 
 ## General usage
 
@@ -17,40 +17,21 @@ own Arcanist library, then load it in your `.arcconfig`:
 ...
 ```
 
-Then you can construct and configure the classes, e.g. in your lint engine:
+You can configure arc to use these linters in `.arclint`:
 
-```php
-<?php
-final class SampleLintEngine extends ArcanistLintEngine {
-  public function buildLinters() {
-    $paths = $this->getPaths();
-
-    // Remove any paths that don't exist before we add paths to linters. We want
-    // to do this for linters that operate on file contents because the
-    // generated list of paths will include deleted paths when a file is removed.
-    // Also remove directories, as the linters expect files
-    foreach ($paths as $key => $path) {
-      if (!$this->pathExists($path) || is_dir($path)) {
-        unset($paths[$key]);
-      }
+```json
+{
+  "linters": {
+    "golint" : {
+      "type" : "golint",
+      "include" : "(\\.go$)"
+    },
+    "govet" : {
+      "type" : "govet",
+      "include" : "(\\.go$)"
     }
-
-    // skip external libraries
-    $paths = preg_grep('@/vendor/@', $paths, PREG_GREP_INVERT);
-
-    $linters = array();
-
-    // linters for specific file types
-    $linters['COFFEESCRIPT'] = new ArcanistGoLintLinter();
-    $linters['COFFEESCRIPT']->setPaths(preg_grep('@\.go$@', $paths));
-
-    $linters['JSON'] = new ArcanistJsonlintLinter();
-    $linters['JSON']->setPaths(preg_grep('@\.json$@', $paths));
-
-    return $linters;
   }
 }
-?>
 ```
 
 ## License
