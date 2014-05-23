@@ -10,14 +10,15 @@ final class ArcanistGoTestEngine extends ArcanistBaseUnitTestEngine {
   public function run() {
     $future = new ExecFuture("go test ./...");
     list($rc, $stdout, $stderr) = $future->resolve();
-    if ($rc !== 0) {
+    $results = $this->parseTestResult($stdout);
+    if (count($results) == 0 && $rc !== 0) {
       // go test exited with an error
       throw new ArcanistUsageException(
         "'go test' exited with an error.\n".
         "stdout:\n\n{$stdout}".
         "stderr:\n\n{$stderr}");
     }
-    return $this->parseTestResult($stdout);
+    return $results;
   }
 
   private function parseTestResult($output) {
